@@ -24,7 +24,7 @@
 $environments = array(
     'local' => array('http://localhost*', '*.dev'),
     'prod' => array('http://mydomain*', '*.org','*.com','*.com.br'),
-    'test' => array(''), // empty is used when called trought artisan
+    'tests' => array(''), // empty is used when called trought artisan
 );
 
 // --------------------------------------------------------------
