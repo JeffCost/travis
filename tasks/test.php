@@ -55,7 +55,7 @@ class Travis_Test_Task {
         if(!defined('ADM_LANG')) define('ADM_LANG', 'us');
         Bundle::register('modules');
         Bundle::start('modules');
-        foreach ($modules_list as $module => $module_path)
+        foreach ($files as $module => $module_path)
         {
             $mod = \Modules\Module::make($module)->is_valid();
 
