@@ -43,8 +43,8 @@ class Travis_Test_Task {
         // echo "\nRunnign migrations...\n";
         // \Laravel\CLI\Command::run(array('migrate'));
 
-        if(!defined('ADM_URI')) define('ADM_URI', 'admin');
-        if(!defined('ADM_LANG')) define('ADM_LANG', 'us');
+        // if(!defined('ADM_URI')) define('ADM_URI', 'admin');
+        // if(!defined('ADM_LANG')) define('ADM_LANG', 'us');
         
         foreach ($modules_list as $module => $module_path) 
         {
