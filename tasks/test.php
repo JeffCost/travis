@@ -64,7 +64,6 @@ class Travis_Test_Task {
                     $class = basename($file).'_Schema_Task';
                     if(class_exists($class))
                     {
-                        \Laravel\CLI\Command::run(array('migrate', basename($file)));
                         $schema_class = new $class;
                         // The action is callable?
                         if(is_callable(array($schema_class, $action)))
