@@ -50,32 +50,32 @@ class Travis_Test_Task {
 
 
         //run all tasks
-        $files = glob("./bundles/*");
-        foreach($files as $file)
-        {
-            if(is_dir($file))
-            {
-                $schema_path = './bundles/'.basename($file).'/tasks/schema.php'; 
+        // $files = glob("./bundles/*");
+        // foreach($files as $file)
+        // {
+        //     if(is_dir($file))
+        //     {
+        //         $schema_path = './bundles/'.basename($file).'/tasks/schema.php'; 
                     
-                if(\File::exists($schema_path))
-                {
-                    $action = 'install';
-                    include_once $schema_path;
-                    // Does the class exists?
-                    $class = basename($file).'_Schema_Task';
-                    if(class_exists($class))
-                    {
-                        $schema_class = new $class;
-                        // The action is callable?
-                        if(is_callable(array($schema_class, $action)))
-                        {
-                            echo "Seeding database for [".basename($file)."]\n";
-                            //$schema_class->$action();
-                        }
-                    }
-                }
-            }
-        }
+        //         if(\File::exists($schema_path))
+        //         {
+        //             $action = 'install';
+        //             include_once $schema_path;
+        //             // Does the class exists?
+        //             $class = basename($file).'_Schema_Task';
+        //             if(class_exists($class))
+        //             {
+        //                 $schema_class = new $class;
+        //                 // The action is callable?
+        //                 if(is_callable(array($schema_class, $action)))
+        //                 {
+        //                     echo "Seeding database for [".basename($file)."]\n";
+        //                     //$schema_class->$action();
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
         echo "Application is ready for tests...\n";
     }
