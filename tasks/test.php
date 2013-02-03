@@ -36,14 +36,17 @@ class Travis_Test_Task {
 
         echo "Installing migrations table...\n";
         \Laravel\CLI\Command::run(array('migrate:install'));
+        echo "\nReseting migrations...\n";
+        \Laravel\CLI\Command::run(array('migrate:reset'));
         echo "\nRunnign migrations...\n";
         \Laravel\CLI\Command::run(array('migrate'));
 
         foreach ($modules_list as $module) 
         {
-            echo "Running migration for [".$module."]\n";
+            echo "\nRunning migration for [".$module."]";
             \Laravel\CLI\Command::run(array('migrate', $module));
         }
+        echo "\n";
 
 
         //run all tasks
