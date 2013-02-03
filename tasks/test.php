@@ -19,7 +19,7 @@ class Travis_Test_Task {
         {
             if(is_dir($file))
             {
-                $modules_list[] = basename($file);
+                $modules_list[basename($file)] = $file;
                 echo "Found module [".basename($file)."]\n";
                 $string .= '\''.basename($file).'\' => array('."\n";
                 $string .= '\'auto\' => true,'."\n";
@@ -53,9 +53,8 @@ class Travis_Test_Task {
         echo "\n";
         if(!defined('ADM_URI')) define('ADM_URI', 'admin');
         if(!defined('ADM_LANG')) define('ADM_LANG', 'us');
-        Bundle::register('modules');
-        Bundle::start('modules');
-        foreach ($files as $module => $module_path)
+        
+        foreach ($modules_list as $module => $module_path)
         {
             $mod = \Modules\Module::make($module)->is_valid();
 
