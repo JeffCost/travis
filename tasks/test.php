@@ -30,7 +30,7 @@ class Travis_Test_Task {
         fwrite($new_bundles_file, $string);
         fclose($new_bundles_file);
 
-        require '../laravel/cli/dependencies.php';
+        require path('sys').'cli/dependencies.php';
 
         $migrate = new Command();
 
