@@ -41,6 +41,7 @@ class Travis_Test_Task {
         
         echo "\nRunnign core migrations...\n";
         \Laravel\CLI\Command::run(array('migrate'));
+        echo "\n";
 
         foreach ($modules_list as $module => $module_path) 
         {
