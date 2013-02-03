@@ -17,6 +17,8 @@ class Travis_Test_Task {
         {
             if(is_dir($file))
             {
+                Bundle::register(basename($file));
+                Bundle::start(basename($file));
                 $modules_list[] = basename($file);
                 echo "Found module [".basename($file)."]\n";
                 $string .= '\''.basename($file).'\' => array('."\n";
