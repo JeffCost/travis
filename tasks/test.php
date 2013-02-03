@@ -32,11 +32,10 @@ class Travis_Test_Task {
 
         require path('sys').'cli/dependencies.php';
 
-        $migrate = new \Command();
+        \Laravel\CLI\Command::run(array('migrate:install'));
 
-        $migrate::run(array('migrate', 'install'));
+        \Laravel\CLI\Command::run(array('migrate'));
 
-        $migrate::run(array('migrate'));
 
         // //run all tasks
         // $files = glob('../mwi/bundles/' . "*");
