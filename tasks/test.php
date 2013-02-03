@@ -53,7 +53,9 @@ class Travis_Test_Task {
         echo "\n";
         if(!defined('ADM_URI')) define('ADM_URI', 'admin');
         if(!defined('ADM_LANG')) define('ADM_LANG', 'us');
-        
+
+        Bundle::register('modules');
+        Bundle::start('modules');
         foreach ($modules_list as $module => $module_path)
         {
             $mod = \Modules\Module::make($module)->is_valid();
