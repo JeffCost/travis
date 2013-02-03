@@ -11,7 +11,7 @@ class Travis_Test_Task {
     {
         echo "Installing application...";
         
-        $files = glob(path('app').'bundles/' . "*");
+        $files = glob(path('app').'/bundles/' . "*");
         $string = "\n".'<?php' ."\n".'return array(';
         foreach($files as $file)
         {
