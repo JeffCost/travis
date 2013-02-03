@@ -55,7 +55,7 @@ class Travis_Test_Task {
                         // The action is callable?
                         if(is_callable(array($schema_class, $action)))
                         {
-                            echo "Seeding database for [".basename($file)."]\n"
+                            echo "Seeding database for [".basename($file)."]\n";
                             $schema_class->$action();
                         }
                     }
