@@ -32,7 +32,7 @@ class Travis_Test_Task {
 
         require path('sys').'cli/dependencies.php';
 
-        $migrate = new Command();
+        $migrate = new \Command();
 
         $migrate::run(array('migrate', 'install'));
 
