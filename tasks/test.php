@@ -46,7 +46,7 @@ class Travis_Test_Task {
         if(!defined('ADM_URI')) define('ADM_URI', 'admin');
         if(!defined('ADM_LANG')) define('ADM_LANG', 'us');
         
-        foreach ($modules_list as $module) 
+        foreach ($modules_list as $module => $module_path) 
         {
             Bundle::register($module);
             echo "\nRunning migration for [".$module."]\n";
