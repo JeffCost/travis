@@ -38,22 +38,19 @@ class Travis_Test_Task {
 
         echo "Installing migrations table...\n";
         \Laravel\CLI\Command::run(array('migrate:install'));
-        // echo "\nReseting migrations...\n";
-        // \Laravel\CLI\Command::run(array('migrate:reset'));
-        // echo "\nRunnign migrations...\n";
-        // \Laravel\CLI\Command::run(array('migrate'));
-
-        // if(!defined('ADM_URI')) define('ADM_URI', 'admin');
-        // if(!defined('ADM_LANG')) define('ADM_LANG', 'us');
         
+        echo "\nRunnign core migrations...\n";
+        \Laravel\CLI\Command::run(array('migrate'));
+
         foreach ($modules_list as $module => $module_path) 
         {
             Bundle::register($module);
             echo "\nRunning migration for [".$module."]\n";
             \Laravel\CLI\Command::run(array('migrate', $module));
             Bundle::disable($module);
+            echo "\n";
         }
-        echo "\n";
+        
         Bundle::register('settings');
         Bundle::start('settings');
         Bundle::register('modules');
