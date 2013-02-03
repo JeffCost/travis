@@ -16,6 +16,7 @@ class Travis_Test_Task {
         {
             if(is_dir($file))
             {
+                echo "Found module [".basename($file)."]";
                 $string .= '\''.basename($file).'\' => array('."\n";
                 $string .= '\'auto\' => true,'."\n";
                 $string .= '\'handles\' => \''.basename($file).'\''."\n";
@@ -32,7 +33,7 @@ class Travis_Test_Task {
 
         echo "Installing migrations table...\n";
         \Laravel\CLI\Command::run(array('migrate:install'));
-        echo "Runnign migrations...\n";
+        echo "\nRunnign migrations...\n";
         \Laravel\CLI\Command::run(array('migrate'));
 
         //run all tasks
