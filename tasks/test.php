@@ -16,7 +16,7 @@ class Travis_Test_Task {
         {
             if(is_dir($file))
             {
-                echo "Found module [".basename($file)."]";
+                echo "\nFound module [".basename($file)."]";
                 $string .= '\''.basename($file).'\' => array('."\n";
                 $string .= '\'auto\' => true,'."\n";
                 $string .= '\'handles\' => \''.basename($file).'\''."\n";
