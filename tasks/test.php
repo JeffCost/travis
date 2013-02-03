@@ -16,7 +16,7 @@ class Travis_Test_Task {
         {
             if(is_dir($file))
             {
-                echo "\nFound module [".basename($file)."]";
+                echo "Found module [".basename($file)."]\n";
                 $string .= '\''.basename($file).'\' => array('."\n";
                 $string .= '\'auto\' => true,'."\n";
                 $string .= '\'handles\' => \''.basename($file).'\''."\n";
@@ -28,6 +28,7 @@ class Travis_Test_Task {
         $new_bundles_file = fopen($bundles_file, 'w') or die("can't open file");
         fwrite($new_bundles_file, $string);
         fclose($new_bundles_file);
+        echo "Bundles file updated successfully.\n";
 
         require path('sys').'cli/dependencies.php';
 
@@ -35,6 +36,12 @@ class Travis_Test_Task {
         \Laravel\CLI\Command::run(array('migrate:install'));
         echo "\nRunnign migrations...\n";
         \Laravel\CLI\Command::run(array('migrate'));
+
+        \Laravel\Bundle::register('settings');
+        \Laravel\Bundle::start('settings');
+
+        //\Laravel\Bundle::register('modules');
+        //\Laravel\Bundle::start('modules');
 
         //run all tasks
         $files = glob("./bundles/*");
