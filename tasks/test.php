@@ -70,7 +70,7 @@ class Travis_Test_Task {
                         if(is_callable(array($schema_class, $action)))
                         {
                             echo "Seeding database for [".basename($file)."]\n";
-                            $schema_class->$action();
+                            //$schema_class->$action();
                         }
                     }
                 }
