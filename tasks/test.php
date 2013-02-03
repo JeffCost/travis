@@ -30,14 +30,13 @@ class Travis_Test_Task {
         fwrite($new_bundles_file, $string);
         fclose($new_bundles_file);
 
-        var_dump(File::get(path('app').'bundles.php'));
-        // require '../mwi/laravel/cli/dependencies.php';
+        require '../laravel/cli/dependencies.php';
 
-        // $migrate = new Command();
+        $migrate = new Command();
 
-        // $migrate::run(array('migrate', 'install'));
+        $migrate::run(array('migrate', 'install'));
 
-        // $migrate::run(array('migrate'));
+        $migrate::run(array('migrate'));
 
         // //run all tasks
         // $files = glob('../mwi/bundles/' . "*");
