@@ -54,6 +54,8 @@ class Travis_Test_Task {
             Bundle::disable($module);
         }
         echo "\n";
+        Bundle::register('settings');
+        Bundle::start('settings');
         Bundle::register('modules');
         Bundle::start('modules');
         foreach ($modules_list as $module => $module_path)
