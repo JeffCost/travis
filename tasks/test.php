@@ -48,6 +48,10 @@ class Travis_Test_Task {
         }
         echo "\n";
 
+        $config = \Laravel\Config::get('database');
+
+        var_dump($config);
+
 
         //run all tasks
         $files = glob("./bundles/*");
