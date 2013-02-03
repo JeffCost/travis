@@ -12,10 +12,12 @@ class Travis_Test_Task {
         $files = glob("./bundles/*");
 
         $string = "\n".'<?php' ."\n".'return array(';
+        $modules_list = array();
         foreach($files as $file)
         {
             if(is_dir($file))
             {
+                $modules_list[] = basename($file);
                 echo "Found module [".basename($file)."]\n";
                 $string .= '\''.basename($file).'\' => array('."\n";
                 $string .= '\'auto\' => true,'."\n";
@@ -37,11 +39,12 @@ class Travis_Test_Task {
         echo "\nRunnign migrations...\n";
         \Laravel\CLI\Command::run(array('migrate'));
 
-        \Laravel\Bundle::register('settings');
-        \Laravel\Bundle::start('settings');
+        foreach ($modules_list as $module) 
+        {
+            echo "Running migration for [".$module."]\n";
+            \Laravel\CLI\Command::run(array('migrate', $module));
+        }
 
-        //\Laravel\Bundle::register('modules');
-        //\Laravel\Bundle::start('modules');
 
         //run all tasks
         $files = glob("./bundles/*");
