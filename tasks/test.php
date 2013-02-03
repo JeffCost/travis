@@ -26,11 +26,15 @@ class Travis_Test_Task {
             }
         }
         $string .= ');';
-        $bundles_file = './bundles.php';
+        $bundles_file = path('app').'bundles.php';
         $new_bundles_file = fopen($bundles_file, 'w') or die("can't open file");
         fwrite($new_bundles_file, $string);
         fclose($new_bundles_file);
         echo "Bundles file updated successfully.\n";
+
+        $names = Bundle::names();
+        var_dump($names);
+        exit(0);
 
         require path('sys').'cli/dependencies.php';
 
