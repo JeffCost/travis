@@ -28,7 +28,7 @@ class Travis_Test_Task {
             }
         }
         $string .= ');';
-        $bundles_file = './application/bundles.php';
+        $bundles_file = path('app').'bundles.php';
         $new_bundles_file = fopen($bundles_file, 'w') or die("can't open file");
         fwrite($new_bundles_file, $string);
         fclose($new_bundles_file);
