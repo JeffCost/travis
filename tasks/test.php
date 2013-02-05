@@ -8,7 +8,7 @@ class Travis_Test_Task {
     }
 
     public function installapp($arguments)
-    {   
+    {
         \Session::load();
         
         $files = glob("./bundles/*");
